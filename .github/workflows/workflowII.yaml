@@ -29,6 +29,6 @@ jobs:
             - name: Change Directory to html
               run: cd /var/www/html
             - name: Check for git
-              run: git
+              run: git --version
             
     
