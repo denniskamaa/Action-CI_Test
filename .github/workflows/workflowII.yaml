@@ -1,0 +1,31 @@
+name: Workflow Two
+on: 
+    push:
+        branches:
+            - main
+    pull_request:
+        branches:
+            - main
+
+jobs:
+    CI:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Echo Starts CI job
+              run: echo " Start CI job"
+            - name: Checkout Code
+              uses: actions/checkout@v2
+              
+    Check-Runner:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Install git
+              run: sudo apt-get git
+            - name: Install Apache
+              run: sudo apt-get install apache2
+    Check-Webserver:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Change Directory to html
+              run: cd /var/www/html
+    
