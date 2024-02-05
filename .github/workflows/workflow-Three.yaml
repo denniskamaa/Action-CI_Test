@@ -1,6 +1,6 @@
 name: Workflow Three
 on:
-    workflow_run:
+    workflow_dispatch
 
 jobs:
     Build:
