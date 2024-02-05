@@ -1,0 +1,37 @@
+name: Workflow-One
+on: [push]
+
+jobs:
+    CI:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Echo Job Start
+              run: echo "CI starts"
+            - name: Install git
+              run: |
+                echo "Installing git"
+                apt install git
+
+    Parallel-job:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Running a job in Parallel
+              run: echo "This job runs on parallel"
+            - name: Stop job
+              run: echo " Job done!"
+    Dependant-job:
+        runs-on: ubuntu-latest
+        needs: [CI]
+        steps:
+            - name: Depend
+              run: echo "I depend on CI"
+            - name: Multiple shell commands
+              run: |
+                echo "Hello world"
+                apt install apache2
+                cd /var/www/html/
+                touch index.html
+                apt install php
+
+
+
