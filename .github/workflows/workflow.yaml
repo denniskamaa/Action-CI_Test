@@ -44,7 +44,7 @@ jobs:
             - name: Initialize git 
               run: sudo git init
             - name: Clone repository
-              run: sudo git clone
+              run: sudo git clone https://github.com/denniskamaa/open-cart.git
             - name: Check files after clone
               run: ls -lrtia
 
