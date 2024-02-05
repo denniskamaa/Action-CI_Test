@@ -1,0 +1,14 @@
+name: Workflow Three
+on:
+    workflow_run:
+
+jobs:
+    Build:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout code
+              uses: actions/checkout@v2
+            - name: Update runner
+              run: sudo apt-get update
+            - name: Upgrade runner
+              run: sudo apt upgrade -y
