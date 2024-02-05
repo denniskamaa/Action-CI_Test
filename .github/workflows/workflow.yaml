@@ -30,7 +30,7 @@ jobs:
                 echo "Hello world"
                 sudo apt install apache2
                 cd /var/www/html/
-                touch index.html
+                sudo touch index.html
                 sudo apt install php
 
 
