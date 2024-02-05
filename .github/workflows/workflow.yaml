@@ -10,7 +10,7 @@ jobs:
             - name: Install git
               run: |
                 echo "Installing git"
-                apt install git
+               
 
     Parallel-job:
         runs-on: ubuntu-latest
