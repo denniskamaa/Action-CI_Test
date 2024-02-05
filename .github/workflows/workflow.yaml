@@ -32,6 +32,20 @@ jobs:
                 cd /var/www/html/
                 sudo touch index.html
                 sudo apt install php
-
+    Clone-Repository:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Check Directory
+              run: pwd
+            - name: Change Dir
+              run: cd /var/www/html/
+            - name: Check files in the dir
+              run: ls -lrtia
+            - name: Initialize git 
+              run: sudo git init
+            - name: Clone repository
+              run: sudo git clone
+            - name: Check files after clone
+              run: ls -lrtia
 
 
