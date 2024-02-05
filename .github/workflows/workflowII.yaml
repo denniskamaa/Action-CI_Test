@@ -20,7 +20,7 @@ jobs:
         runs-on: ubuntu-latest
         steps:
             - name: Install git
-              run: sudo apt-get git
+              run: sudo apt-get install git
             - name: Install Apache
               run: sudo apt-get install apache2
     Check-Webserver:
@@ -28,4 +28,7 @@ jobs:
         steps:
             - name: Change Directory to html
               run: cd /var/www/html
+            - name: Check for git
+              run: git
+            
     
