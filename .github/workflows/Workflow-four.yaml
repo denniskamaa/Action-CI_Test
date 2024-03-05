@@ -30,6 +30,13 @@ jobs:
         runs-on: Ubuntu-latest
         needs: [Build]
         steps:
+            - name: Check in git
+              run: |
+                git --version
+                if [ $? -eq 0 ]; then
+                 echo " Git is available! "
+                else " echo git not installed "
+                fi
             - name: Check on Apache
               run: |
                 cd /var/www/html/
