@@ -31,7 +31,12 @@ jobs:
         needs: [Build]
         steps:
             - name: Check on Apache
-              run: cd /var/www/html/
+              run: |
+                cd /var/www/html/
+                if [ -f index.html]; then
+                  echo "Index.html exist"
+                else " Index.html doesnot exist"
+                  fi
             - name: Check Files
               run: ls -lrt
             - name: check PHP dependancies
