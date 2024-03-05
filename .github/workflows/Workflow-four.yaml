@@ -23,6 +23,10 @@ jobs:
                  sudo apt install php
                  cd /var/www/html/
                  sudo git clone https://github.com/denniskamaa/Hospital-Management-System.git
+                 if [ -f contact.css]; then
+                  echo " repo cloned"
+                 else  " Repo not cloned"
+                 fi 
             - name: Done!
               run: echo "This is done!"
     
@@ -40,9 +44,9 @@ jobs:
             - name: Check on Apache
               run: |
                 cd /var/www/html/
-                if [ -f index.html]; then
-                  echo "Index.html exist"
-                else " Index.html doesnot exist"
+                if [ -f contact.html]; then
+                  echo "contact.html exist"
+                else " contact.html doesnot exist"
                   fi
             - name: Check Files
               run: ls -lrt
