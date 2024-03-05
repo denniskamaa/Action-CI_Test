@@ -25,3 +25,16 @@ jobs:
                  sudo git clone https://github.com/denniskamaa/Hospital-Management-System.git
             - name: Done!
               run: echo "This is done!"
+    
+    Test:
+        runs-on: Ubuntu-latest
+        needs: [Build]
+        steps:
+            - name: Check on Apache
+              run: cd /var/www/html/
+            - name: Check Files
+              run: ls -lrt
+            - name: check PHP dependancies
+              run: cd var/php/ && ls -lrt
+            - name: Done
+              run: echo " Done Checking!"
