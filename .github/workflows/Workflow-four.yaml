@@ -44,7 +44,7 @@ jobs:
             - name: Check on Apache
               run: |
                 cd /var/www/html/Hospital-Management-System/
-                if [ -f contact.html]; then
+                if [ -d contact.html]; then
                   echo "contact.html exist"
                 else " contact.html doesnot exist"
                   fi
