@@ -24,8 +24,8 @@ jobs:
                  cd /var/www/html/
                  sudo git clone https://github.com/denniskamaa/Hospital-Management-System.git
                  if [ -f contact.css]; then
-                  echo " repo cloned"
-                 else  " Repo not cloned"
+                  echo " Repo cloned"
+                 else  echo " Repo not cloned"
                  fi 
             - name: Done!
               run: echo "This is done!"
@@ -39,7 +39,7 @@ jobs:
                 git --version
                 if [ $? -eq 0 ]; then
                  echo " Git is available! "
-                else " echo git not installed "
+                else echo "git not installed "
                 fi
             - name: Check on Apache
               run: |
