@@ -1,0 +1,27 @@
+name: Workflow Four
+on: 
+    push:
+        branches:
+            - main
+            - mimi
+    pull_request:
+            branches:
+                - main
+
+jobs:
+    Build:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Start Job
+              run: echo " Build job starts"
+            - name: Checkout Code
+              uses: actions/checkout@v2
+            - name: Check on dependancies
+              run: |
+                 sudo apt install git
+                 sudo apt install apache2
+                 sudo apt install php
+                 cd /var/www/html/
+                 sudo git clone https://github.com/denniskamaa/Hospital-Management-System.git
+            - name: Done!
+              run: echo "This is done!"
