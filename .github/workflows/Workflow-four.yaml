@@ -1,0 +1,56 @@
+name: Workflow Four
+on: 
+    push:
+        branches:
+            - main
+            - mimi
+    pull_request:
+            branches:
+                - main
+
+jobs:
+    Build:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Start Job
+              run: echo " Build job starts"
+            - name: Checkout Code
+              uses: actions/checkout@v2
+            - name: Check on dependancies
+              run: |
+                 sudo apt install git
+                 sudo apt install apache2
+                 sudo apt install php
+                 cd /var/www/html/
+                 sudo git clone https://github.com/denniskamaa/Hospital-Management-System.git
+                 if [ -f contact.css]; then
+                  echo " Repo cloned"
+                 else  echo " Repo not cloned"
+                 fi 
+            - name: Done!
+              run: echo "This is done!"
+    
+    Test:
+        runs-on: Ubuntu-latest
+        needs: [Build]
+        steps:
+            - name: Check in git
+              run: |
+                git --version
+                if [ $? -eq 0 ]; then
+                 echo " Git is available! "
+                else echo "git not installed "
+                fi
+            - name: Check on Apache
+              run: |
+                cd /var/www/html/Hospital-Management-System/
+                if [ -d contact.html]; then
+                  echo "contact.html exist"
+                else " contact.html doesnot exist"
+                  fi
+            - name: Check Files
+              run: ls -lrt
+            - name: check PHP dependancies
+              run: cd var/php/ && ls -lrt
+            - name: Done
+              run: echo " Done Checking!"
